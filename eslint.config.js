@@ -39,6 +39,7 @@ export default tseslint.config(
             'src/lib/**/*',
             'src/context/**/*',
             'src/providers/**/*',
+            'src/routes/**/*',
           ],
         },
         {
