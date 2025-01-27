@@ -1,70 +1,83 @@
 import { globalStyle } from '@vanilla-extract/css';
 
+import { vars } from '@/styles/theme/theme.css.ts';
+
+globalStyle('html', {
+  fontFamily: 'Poppins,Sanserif',
+  display: 'flex',
+  width: '100vw',
+  height: '100vh',
+  overflow: 'hidden',
+});
 globalStyle('#root', {
-  fontFamily: 'sans-serif',
-  lineHeight: '1.5',
   fontWeight: '400',
-  maxWidth: '1280px',
-  margin: '0 auto',
-  padding: '2rem',
-  textAlign: 'center',
-  colorScheme: 'light dark',
-  color: 'rgba(255, 255, 255, 0.87)',
-  backgroundColor: '#242424',
-
-  fontSynthesis: 'none',
-  textRendering: 'optimizeLegibility',
-  WebkitFontSmoothing: 'antialiased',
-  MozOsxFontSmoothing: 'grayscale',
-});
-
-globalStyle('a', {
-  fontWeight: '500',
-  color: '#646cff',
-  textDecoration: 'inherit',
-});
-
-globalStyle('a:hover', {
-  color: '#535bf2',
+  height: '100%',
+  width: '100%',
+  margin: 0,
+  padding: 0,
 });
 
 globalStyle('body', {
-  margin: '0',
   display: 'flex',
-  placeItems: 'center',
-  minWidth: '320px',
-  minHeight: '100vh',
-});
-
-globalStyle('h1', {
-  fontSize: '3.2em',
-  lineHeight: '1.1',
+  height: '100%',
+  width: '100%',
+  margin: 0,
+  padding: 0,
+  overflow: 'hidden',
 });
 
 globalStyle('button', {
+  fontFamily: 'Poppins,Sanserif',
   borderRadius: '8px',
-  border: '1px solid transparent',
-  padding: '0.6em 1.2em',
-  fontSize: '1em',
+  padding: '0.6em 0.6em',
+  fontSize: '14px',
   fontWeight: '500',
-  fontFamily: 'inherit',
-  backgroundColor: '#1a1a1a',
   cursor: 'pointer',
-  transition: 'border-color 0.25s',
+  transition: 'background-color 0.3s ease, color 0.3s ease',
+  border: 'none',
+  height:'3.3em',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center' ,
+  width:'fit-content'
+});
+globalStyle('input[type="text"]:focus,input[type="text"]:hover,input[type="password"]:focus,input[type="password"]:hover,input[type="email"]:focus,input[type="text"]:hover', {
+  boxShadow: `0 0 10px white`,
+  outline: 'blue'
+});
+globalStyle('.authPasswordWrapper', {
+  position: 'relative',
+  width: '100%',
 });
 
-globalStyle('button:hover', {
-  borderColor: '#646cff',
+globalStyle('.authPasswordDisplayMode', {
+  position: 'absolute',
+  right: '10px',
+  top: '55%',
+  transform: 'translateY(-50%)',
+  cursor: 'pointer',
 });
 
-globalStyle('button:focus, button:focus-visible', {
-  outline: '4px auto -webkit-focus-ring-color',
+globalStyle('input[type="text"], input[type="password"]', {
+  width: '100%',
+  boxSizing: 'border-box',
+  padding: '12px 16px',
+  borderRadius: '4px',
+  background: vars.colors.secondary.light,
+  color: 'black',
+  transition: 'border-color 0.3s ease, box-shadow 0.2s ease',
 });
 
-globalStyle('@media (prefers-color-scheme: light) a:hover', {
-  color: '#747bff',
+globalStyle('.centerAlignWrapper',{
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+})
+globalStyle('a', {
+color: vars.colors.base.text_color,
+});
+globalStyle('a:hover', {
 });
 
-globalStyle('@media (prefers-color-scheme: light) button', {
-  backgroundColor: '#f9f9f9',
-});
+
