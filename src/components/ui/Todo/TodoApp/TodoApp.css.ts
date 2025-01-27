@@ -53,7 +53,7 @@ const toggleOption = style({
  selectors: {
   '&[data-active="true"]': {
    background: vars.colors.secondary.light,
-   color: vars.colors.base.text_color,
+   color: 'black',
    cursor:'not-allowed',
   },
  },
