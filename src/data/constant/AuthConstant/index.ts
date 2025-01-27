@@ -1,0 +1,10 @@
+
+enum AUTH_ACTION_TYPE {
+  LOGIN = 'LOGIN',
+  REGISTER = 'REGISTER',
+  LOGOUT = 'LOGOUT',
+}
+
+export {
+  AUTH_ACTION_TYPE,
+}
