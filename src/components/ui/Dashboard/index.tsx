@@ -6,7 +6,9 @@ import {
   sidebar,
   content,
   sidebarItem,
-  activeSidebarItem, text,
+  activeSidebarItem,
+  text,
+  iconWrapper,
 } from '@/components/ui/Dashboard/Dashboard.css';
 import Profile from '@/components/ui/Profile';
 import TodoApp from '@/components/ui/Todo/TodoApp';
@@ -20,6 +22,8 @@ import LogoutIcon from '@/components/icons/LogoutIcon';
 import Popup from '@/components/ui/Popup';
 import { AUTH_ACTION_TYPE } from '@/data/constant/AuthConstant';
 import useAuth from '@/hooks/useAuth';
+import RestoreIcon from '@/components/icons/RestoreIcon';
+import TodoRestore from '@/components/ui/Todo/TodoRestore';
 
 
 const Dashboard: React.FunctionComponent = () => {
@@ -40,6 +44,8 @@ const Dashboard: React.FunctionComponent = () => {
         return <TodoApp showForm={false} filter={TODO_STATUS.PENDING} />;
       case 'profile':
         return <Profile />;
+        case 'restore':
+        return <TodoRestore />;
       default:
         return <TodoApp filter={TODO_STATUS.ALL} />;
     }
@@ -62,28 +68,45 @@ const Dashboard: React.FunctionComponent = () => {
          className={`${sidebarItem} ${activeView === 'all' ? activeSidebarItem : ''}`}
          onClick={() => setActiveView('all')}
        >
-         <TodoListIcon />
+         <div className={iconWrapper}>
+           <TodoListIcon />
+         </div>
          <span className={text}>All Todos</span>
        </div>
        <div
          className={`${sidebarItem} ${activeView === 'completed' ? activeSidebarItem : ''}`}
          onClick={() => setActiveView('completed')}
        >
-         <CompleteIcon />
+         <div className={iconWrapper}>
+           <CompleteIcon />
+         </div>
          <span className={text}>Completed Todos</span>
        </div>
        <div
          className={`${sidebarItem} ${activeView === 'pending' ? activeSidebarItem : ''}`}
          onClick={() => setActiveView('pending')}
        >
-         <PendingIcon />
+         <div className={iconWrapper}>
+           <PendingIcon />
+         </div>
          <span className={text}>Pending Todos</span>
+       </div>
+       <div
+         className={`${sidebarItem} ${activeView === 'restore' ? activeSidebarItem : ''}`}
+         onClick={() => setActiveView('restore')}
+       >
+         <div className={iconWrapper}>
+           <RestoreIcon />
+         </div>
+         <span className={text}>Restore bin</span>
        </div>
        <div
          className={`${sidebarItem} ${activeView === 'profile' ? activeSidebarItem : ''}`}
          onClick={() => setActiveView('profile')}
        >
-         <ProfileIcon />
+         <div className={iconWrapper}>
+           <ProfileIcon />
+         </div>
          <span className={text}>{localUser.firstName}</span>
        </div>
        <div
@@ -92,7 +115,9 @@ const Dashboard: React.FunctionComponent = () => {
            setIsPopupOpen(true);
          }}
        >
-         <LogoutIcon />
+         <div className={iconWrapper}>
+           <LogoutIcon />
+         </div>
          <span className={text}>Logout</span>
        </div>
      </div>
