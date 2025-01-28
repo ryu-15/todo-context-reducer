@@ -15,7 +15,7 @@ import { vars } from '@/styles/theme/theme.css.ts';
   display: 'flex',
   justifyContent: 'flex-start',
   flexDirection: 'column',
-  gap: '30px',
+  gap: '16px',
   transition: 'width 0.3s ease',
 
   '@media': {
@@ -54,6 +54,13 @@ import { vars } from '@/styles/theme/theme.css.ts';
   backgroundColor: vars.colors.primary.default,
 });
 
+ const iconWrapper=style({
+   height: '2em',
+   width: '2em',
+   display: 'flex',
+   justifyContent:'center',
+   alignItems: 'center',
+ });
  const content = style({
   display: 'flex',
   width: '85%',
@@ -61,7 +68,7 @@ import { vars } from '@/styles/theme/theme.css.ts';
   alignItems: 'center',
    height:'100%',
    overflowX:'hidden',
-   overflowY:'hidden',
+   overflowY:'scroll',
    padding:'0 20px',
    backgroundColor: vars.colors.secondary.light
 
@@ -80,5 +87,6 @@ import { vars } from '@/styles/theme/theme.css.ts';
    sidebarItem,
    activeSidebarItem,
    dashboardContainer,
-   text
+   text,
+   iconWrapper
  }
